@@ -1,4 +1,4 @@
-package com.api.parking.dtos;
+package com.api.parking.dtos.Person;
 
 import lombok.Data;
 
@@ -7,7 +7,7 @@ import javax.validation.constraints.NotNull;
 import java.util.UUID;
 
 @Data
-public class PersonDto {
+public class PersonDTO {
     private UUID id;
 
     @NotBlank

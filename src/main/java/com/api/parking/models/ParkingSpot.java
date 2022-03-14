@@ -19,6 +19,7 @@ public class ParkingSpot extends BaseEntity implements Serializable {
     @Column(nullable = false, unique = true, length = 10)
     private String number;
 
-    @ManyToOne(targetEntity = Apartment.class)
+    @JoinColumn
+    @ManyToOne
     private Apartment apartment;
 }

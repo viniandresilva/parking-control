@@ -1,5 +1,7 @@
 package com.api.parking.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
@@ -13,14 +15,13 @@ import java.util.UUID;
 @Entity
 @Table(name = "person")
 @Data
-@EntityListeners(AuditingEntityListener.class)
 public class Person extends BaseEntity implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Column(nullable = false, length = 130)
     private String name;
 
-    @Column(nullable = false, length = 11)
+    @Column(nullable = false, unique = true, length = 11)
     private String document;
 
     @OneToMany(mappedBy = "person", targetEntity = Apartment.class)

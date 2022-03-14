@@ -1,27 +1,25 @@
-package com.api.parking.dtos;
+package com.api.parking.dtos.Apartment;
 
 import com.api.parking.models.Person;
+import lombok.Data;
 
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.util.UUID;
 
-public class ApartmentDto {
+@Data
+public class ApartmentDTO {
+    private UUID id;
 
-    @NotBlank
-    @NotEmpty
     @NotNull
     private Integer number;
 
     @NotBlank
-    @NotEmpty
     @NotNull
     @Size(max = 10, message = "number must be a maximum of 10 characters")
     private String block;
 
-    @NotBlank
-    @NotEmpty
     @NotNull
-    private Person person;
+    private UUID person;
 }

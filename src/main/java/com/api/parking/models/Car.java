@@ -1,5 +1,6 @@
 package com.api.parking.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
@@ -27,6 +28,7 @@ public class Car extends BaseEntity implements Serializable {
     @Column(nullable = false, length = 70)
     private String color;
 
-    @ManyToOne(targetEntity = Person.class)
+    @JoinColumn()
+    @ManyToOne
     private Person person;
 }

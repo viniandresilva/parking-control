@@ -1,5 +1,6 @@
 package com.api.parking.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
@@ -20,10 +21,10 @@ public class Apartment extends BaseEntity implements Serializable {
     @Column(nullable = false, length = 10)
     private String block;
 
-    @ManyToOne(targetEntity = Person.class)
+    @ManyToOne
     @JoinColumn(name = "parking_spot")
     private Person person;
 
-    @OneToMany(mappedBy = "apartment", targetEntity = ParkingSpot.class)
+    @OneToMany(mappedBy = "apartment")
     private List<ParkingSpot> parkingSpots;
 }
